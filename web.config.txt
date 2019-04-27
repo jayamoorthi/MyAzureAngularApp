@@ -1,0 +1,17 @@
+<configuration>
+<system.webserver>
+<rewrite>
+<rules>
+<rule name="Main Rule" stopProcessing="true">
+<match url=".*" />
+<conditions logicalGrouping="MatchAll">
+<add input="{REQUEST_FILENANE}" matchType="isFile" negate="true" />
+<add input="{REQUEST_FILENANE}" matchType="isDirectory" negate="true" />
+<add input="{REQUEST_URI}" pattern ="^/(api)" negate="true" />
+</conditions>
+<action type="Rewrite" url="/AngaularApp/" />
+</rule>
+</rules>
+</rewrite>
+</system.webserver>
+</configuration>
